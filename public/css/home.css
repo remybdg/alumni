@@ -1,0 +1,164 @@
+body {
+    margin:0 auto;
+    padding: 0;
+    background-color: #C0D5E8;
+    color: #49535E;
+    font-family: cooper-black-std, serif;
+    font-weight: 400;
+    font-style: normal;
+    max-width:  1200px;;
+}
+
+header {
+    display: flex;
+    justify-content: right;
+    height: 240px;
+}
+
+#logo {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#breadcrumbs {
+    float: right;
+    margin: 5rem;
+}
+a {
+    color: #49535E;
+    transition: .2s;
+}
+
+main {
+    flex-direction: column;
+    align-items: center;
+}
+
+.container {
+    width: 60vw;
+    background-color: #ECECEC;
+    border: 2px solid #707070;
+    border-radius: 25px;
+    padding: 2rem;
+    margin: 3rem;
+}
+
+#firstline {
+    display: flex;
+}
+
+.textcenter {
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+}
+
+#recherche {
+    flex-direction: column;
+    align-items: center;
+
+
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#fields {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.field {
+    margin: 1.5rem;
+    text-align: center;
+}
+
+#submitBtn {
+    font-family: cooper-black-std, serif;
+    background-color: #CE3C3C;
+    color: white;
+    margin: 1.5rem;
+    padding: 1rem;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    border: 1px solid #707070;
+    box-shadow: 5px 5px 5px 2px rgba(99, 90, 90, .4);
+    cursor: pointer;
+}
+
+#submitBtn:hover {
+    background-color: rgb(224, 28, 28);
+}
+
+#submitBtn:active {
+    box-shadow: 2px 2px 2px 2px rgba(99, 90, 90, .6);
+    transform: translateY(4px);
+}
+
+input[type=text] {
+    border-radius: 25px;
+    border: 1px solid #707070;
+    margin-top: 1rem;
+    padding: .3rem 1rem;
+    width: 200px;
+    height: 1.5rem;
+}
+
+footer {
+    text-align: center;
+
+}
+
+.resultContainer {
+    flex-wrap: wrap;
+    width: 100%;
+    margin: 3rem 0;
+}
+.avatar {
+    width: 150px;
+}
+
+.minifiche {
+    min-width: 40%;
+    background-color: #ECECEC;
+    border: 2px solid #707070;
+    border-radius: 25px;
+    padding: 2rem;
+    margin: 1rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+
+}
+
+.ficheInfo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ficheInfo h2 {
+    margin-bottom: 2rem;
+}
+
+.ficheInfo> a:not(:first-child) {
+    margin-bottom: 1rem;
+    color: #CE3C3C;
+}
+.ficheInfo> a:first-child {
+    text-decoration: none;
+}
+a:hover {
+    color: rgb(224, 28, 28);
+}

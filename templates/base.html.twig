@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>
+            {% block title %}
+
+            {% endblock %}
+        </title>
+        <meta charset="UTF-8">
+        {% block stylesheets %}
+            <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+            <link rel="stylesheet" href="https://use.typekit.net/lcx3lok.css">
+        {% endblock %}
+    </head>
+    <body>
+        {% block header %}
+            <header>
+                <a href="index.html">
+                    <img id="logo" alt="greta-logo" src="{{ asset('images/logo.png') }}">
+                </a>
+                <div id="breadcrumbs">
+                    <a href="index.html">Accueil</a>
+                </div>
+            </header>
+        {% endblock %}
+        {% block body %}{% endblock %}
+        {% block footer %}
+            <footer>
+                <p>Le site de réseau des élèves du Greta Provence  par la section Développement Web 2019 - 2020</p>
+            </footer>
+        {% endblock %}
+
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>

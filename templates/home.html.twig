@@ -1,0 +1,58 @@
+{%  extends 'base.html.twig' %}
+
+
+    {% block title %}
+        KiKiCé? Greta
+    {% endblock %}
+
+{% block stylesheets %}
+    {{  parent() }}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+
+{% endblock %}
+
+
+{% block body %}
+
+
+
+    <main class="center">
+        <div id="presentation" class="container">
+            <div id="firstline">
+                <img id="kikice"  class="kikice-logo" alt="greta-logo" src="{{ asset('images/kikice.png') }}">
+                <p>c'est le réseau des élèves du Greta Provence.</p>
+            </div>
+            <p>- Tu n'as plus d'amis, tu cherches à retrouver tes anciens camarades !</p>
+            <p>- Ca y est tu as décroché un poste en or et tu veux faire le malin !</p>
+            <p>- Tu t'es enfin décider à te venger après des mois d'humiliation.</p>
+            <div class="center">
+                <p>Retrouves en 2 clics tes victimes collègues.</p>
+            </div>
+        </div>
+        <div id="recherche" class="container center">
+            <h2>RECHERCHE DES ELEVES</h2>
+            <form action="results.html">
+                <div id="fields">
+                    <div class="field">
+                        par formation<br>
+                        <input type="text" name="formation" value="">
+                    </div>
+                    <div class="field">
+                        par nom<br>
+                        <input type="text" name="nom" value="">
+                    </div>
+                    <div class="field">
+                        par année<br>
+                        <input type="text" name="annee" value="">
+                    </div>
+                </div>
+
+                <input type="submit" value="lancer la recherche" id="submitBtn">
+            </form>
+
+        </div>
+    </main>
+
+
+
+{% endblock %}
