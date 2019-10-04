@@ -3,6 +3,7 @@
 use App\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;
+use App\Service\Avatar\SvgAvatarFactory;
 
 require dirname(__DIR__).'/config/bootstrap.php';
 
@@ -25,3 +26,4 @@ $request = Request::createFromGlobals();
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);
+
