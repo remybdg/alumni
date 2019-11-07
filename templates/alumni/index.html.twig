@@ -1,0 +1,52 @@
+{%  extends 'base.html.twig' %}
+
+
+    {% block title %}
+        KiKiCé? Greta
+    {% endblock %}
+
+{% block stylesheets %}
+    {{  parent() }}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+
+
+    <main class="center">
+
+
+        <div id="mainAlumni" class="container">
+            <div id="alumniHeader" class="">
+                <div>
+                    <h2>{{ user.firstname }} </h2>
+                    <h2>{{ user.lastname }}</h2>
+                </div>
+                {%  set avatar_dir = constant('App\\Service\\Avatar\\SvgAvatarFactory::AVATAR_DIR') %}
+                <img class="avatarImg" src="{{ asset(upload_dir ~ '/' ~avatar_dir ~ '/' ~ user.avatar) }}" alt="" width="250px" height="250px">
+
+            </div>
+            <div id="alumniBody">
+                <div>
+                    <p>Ville: {{ user.city }}</p>
+                    <p>Email: {{ user.email }}</p>
+                    <p>Anniversaire: {{ user.birthdate|localizeddate('none', 'none', null, null, 'd MMMM ') }}</p>
+                </div>
+                <div>
+                    <p>Promotion:</p>
+                    {% for promotion in user.promotions %}
+                        <li>{{ promotion.degree.name }} / {{ promotion.year.title }}</li>
+                    {% endfor %}
+                </div>
+            </div>
+
+        </div>
+
+    </main>
+
+    {{ dump(user) }}
+    {{ app.request.attributes.get('_route') }}
+    {{ app.request}}
+{% endblock %}

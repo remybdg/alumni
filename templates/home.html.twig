@@ -15,7 +15,6 @@
 {% block body %}
 
 
-
     <main class="center">
         <div id="presentation" class="container">
             <div id="firstline">
@@ -26,31 +25,54 @@
             <p>- Ca y est tu as décroché un poste en or et tu veux faire le malin !</p>
             <p>- Tu t'es enfin décider à te venger après des mois d'humiliation.</p>
             <div class="center">
-                <p>Retrouves en 2 clics tes victimes collègues.</p>
+                <p>Retrouves en 2 clics tes <del>victimes</del> collègues.</p>
             </div>
         </div>
         <div id="recherche" class="container center">
             <h2>RECHERCHE DES ELEVES</h2>
-            <form action="results.html">
+            <form action="{{ path('home.index',{ "_fragment": "resultats_de_recherche"}) }}" method="post">
                 <div id="fields">
                     <div class="field">
                         par formation<br>
-                        <input type="text" name="formation" value="">
+                        <select name="degree" id="" >
+                            <option value="">Toutes les formations</option>
+                        {% for degree in degrees %}
+                            <option value="{{ degree.id }}">{{ degree.name }}</option>
+                        {% endfor %}
+                        </select>
                     </div>
                     <div class="field">
-                        par nom<br>
-                        <input type="text" name="nom" value="">
+                        par formation<br>
+                        <select name="year" id="" >
+                            <option value="">Toutes les années</option>
+                            {% for year in years %}
+                                <option value="{{ year.id }}">{{ year.title }}</option>
+                            {% endfor %}
+                        </select>
                     </div>
-                    <div class="field">
-                        par année<br>
-                        <input type="text" name="annee" value="">
-                    </div>
+
                 </div>
 
                 <input type="submit" value="lancer la recherche" id="submitBtn">
             </form>
 
         </div>
+        <div id="resultats_de_recherche">
+            {% for user in users %}
+                <div id="rechercheResult" class="container">
+                    {%  set avatar_dir = constant('App\\Service\\Avatar\\SvgAvatarFactory::AVATAR_DIR') %}
+                    <img class="avatarImg" src="{{ asset(upload_dir ~ '/' ~avatar_dir ~ '/' ~ user.avatar) }}" alt="" width="80px" height="80px">
+                    {{ user.firstname }} {{ user.lastname }}<br>
+                    {{ user.city }}<br>
+                    {% for promotion in user.promotions %}
+                        <li>{{ promotion.degree.name }} / {{ promotion.year.title }}</li>
+                    {% endfor %}
+                    <a class="lienFiche" href="{{ path('alumni.index', {"id": user.id, "slug": user.slug}) }}">Voir la fiche</a>
+                </div>
+            {% endfor %}
+
+        </div>
+
     </main>
 
 

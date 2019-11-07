@@ -104,13 +104,17 @@ form {
     transform: translateY(4px);
 }
 
-input[type=text] {
+select {
     border-radius: 25px;
     border: 1px solid #707070;
     margin-top: 1rem;
     padding: .3rem 1rem;
     width: 200px;
-    height: 1.5rem;
+    height: 2rem;
+}
+
+option {
+    width: 80%;
 }
 
 footer {
@@ -161,4 +165,46 @@ footer {
 }
 a:hover {
     color: rgb(224, 28, 28);
+}
+
+#rechercheResult {
+    width: 40%;
+    margin: 1rem;
+}
+
+#resultats_de_recherche {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+ .avatarImg {
+     float: right;
+ }
+
+ li {
+     padding-left: 2rem;
+     list-style-type: none;
+ }
+
+ .lienFiche {
+     font-size: 0.8rem;
+     text-align: center;
+     display: block;
+     padding-top: 1rem;
+ }
+
+ /****************************************** template alumni *****************************************/
+
+#alumniHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+#alumniBody {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
 }
