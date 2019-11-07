@@ -63,7 +63,7 @@
                     {%  set avatar_dir = constant('App\\Service\\Avatar\\SvgAvatarFactory::AVATAR_DIR') %}
                     <img class="avatarImg" src="{{ asset(upload_dir ~ '/' ~avatar_dir ~ '/' ~ user.avatar) }}" alt="" width="80px" height="80px">
                     {{ user.firstname }} {{ user.lastname }}<br>
-                    {{ user.city }}<br>
+                    {{ user.city }}<br><br>
                     {% for promotion in user.promotions %}
                         <li>{{ promotion.degree.name }} / {{ promotion.year.title }}</li>
                     {% endfor %}
