@@ -37,7 +37,7 @@
                 <div>
                     <p>Promotion:</p>
                     {% for promotion in user.promotions %}
-                        <li>{{ promotion.degree.name }} / {{ promotion.year.title }}</li>
+                        <li>{{ promotion.degree.name }} - {{ promotion.year.title }}</li>
                     {% endfor %}
                 </div>
             </div>

@@ -65,7 +65,7 @@
                     {{ user.firstname }} {{ user.lastname }}<br>
                     {{ user.city }}<br><br>
                     {% for promotion in user.promotions %}
-                        <li>{{ promotion.degree.name }} / {{ promotion.year.title }}</li>
+                        <li>{{ promotion.degree.name }} - {{ promotion.year.title }}</li>
                     {% endfor %}
                     <a class="lienFiche" href="{{ path('alumni.index', {"id": user.id, "slug": user.slug}) }}">Voir la fiche</a>
                 </div>
