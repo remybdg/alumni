@@ -103,7 +103,7 @@
                         </li>
                         {% for promo in promos %}
                             <li id="promo-{{ promo.id }}" class="d-flex">
-                                <span class="col-8">{{ promo.degree.name }} - {{ promo.year.title }}</span>
+                                <a class="col-8" href="/promotions/{{ promo.id }}">{{ promo.degree.name }} - {{ promo.year.title }}  du {{ promo.startDate|localizeddate('none', 'none', null, null, 'd.M.Y ') }} au {{ promo.endDate|localizeddate('none', 'none', null, null, 'd.M.Y ') }}</a>
                                 <div class="col-4 d-flex justify-content-end">
                                     <a href="{{ path('admin.prom.edit', {"id": promo.id}) }}" class="col-6 text-center">&#9998;</a>
                                     <a class="col-6 text-center poubelle" href="{{ path('admin.prom.rem', {"id": promo.id}) }}"> &#10008; </a>
@@ -115,7 +115,6 @@
 
             </div>
         </div>
-
     </main>
 {% endblock %}
 {% block javascripts %}

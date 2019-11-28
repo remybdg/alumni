@@ -28,12 +28,19 @@
                 <p>Retrouves en 2 clics tes <del>victimes</del> collègues.</p>
             </div>
         </div>
+
+
         <div id="recherche" class="container center">
-            <h2>RECHERCHE DES ELEVES</h2>
+            <h2>RECHERCHE</h2>
+
+            <a id="promLink" href="/promotions">rechercher une promotions</a>
+
+            <p>ou</p>
+
             <form action="{{ path('home.index',{ "_fragment": "resultats_de_recherche"}) }}" method="post">
                 <div id="fields">
                     <div class="field">
-                        par formation<br>
+                        formation<br>
                         <select name="degree" id="" >
                             <option value="">Toutes les formations</option>
                         {% for degree in degrees %}
@@ -42,7 +49,7 @@
                         </select>
                     </div>
                     <div class="field">
-                        par formation<br>
+                        années<br>
                         <select name="year" id="" >
                             <option value="">Toutes les années</option>
                             {% for year in years %}
@@ -53,7 +60,9 @@
 
                 </div>
 
-                <input type="submit" value="lancer la recherche" id="submitBtn">
+                <input type="submit" value="rechercher des élèves" id="submitBtn"><br>
+
+
             </form>
 
         </div>

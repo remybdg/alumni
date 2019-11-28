@@ -6,6 +6,7 @@ namespace App\Controller;
 
 use App\Entity\Degree;
 use App\Repository\DegreeRepository;
+use App\Repository\PromotionRepository;
 use App\Repository\UserRepository;
 use App\Repository\YearRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;

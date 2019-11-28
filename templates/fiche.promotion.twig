@@ -1,0 +1,48 @@
+{%  extends 'base.html.twig' %}
+
+
+    {% block title %}
+        KiKiCé? Greta
+    {% endblock %}
+
+{% block stylesheets %}
+    {{  parent() }}
+    <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+
+{% endblock %}
+
+{% block body %}
+
+
+
+    <main class="center">
+
+
+        <div id="" class="container">
+            <div id="" class="">
+
+                    <h2>{{ promotion.degree.name }} - {{ promotion.year.title }} </h2>
+                <h3>Période:</h3>
+                <p> du {{ promotion.startDate|localizeddate('none', 'none', null, null, 'd.M.Y ') }} au {{ promotion.endDate|localizeddate('none', 'none', null, null, 'd.M.Y ') }}</p>
+                <br>
+                <h3>Notes:</h3>
+                <p>{{ promotion.notes }} </p>
+            </div>
+
+        </div>
+
+    </main>
+
+    {#    {{ dump(user) }}#}
+    {{ app.request.attributes.get('_route') }}
+    {{ app.request}}
+{% endblock %}
+{% block javascripts %}
+    <script>
+
+
+
+    </script>
+
+
+{% endblock %}
