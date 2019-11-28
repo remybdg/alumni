@@ -162,3 +162,47 @@ footer {
 a:hover {
     color: rgb(224, 28, 28);
 }
+
+.input {
+    border-radius: 25px;
+    border: 1px solid #707070;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    padding: .3rem 1rem;
+    width: 200px;
+    height: 2rem;
+}
+
+#loginBtn {
+    font-family: cooper-black-std, serif;
+    background-color: #CE3C3C;
+    color: white;
+    margin: .5rem;
+    padding: 1rem;
+    font-size: 1.3rem;
+    border-radius: 25px;
+    border: 1px solid #707070;
+    box-shadow: 5px 5px 5px 2px
+    rgba(99, 90, 90, .4);
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    margin: 2rem;
+}
+
+nav li{
+      margin-bottom: 1rem;
+}
+
+nav li a{
+    text-decoration: none;
+    margin-left: 2rem;
+}
+
+#avatar {
+    vertical-align: text-bottom;
+    margin-right: 0.5rem;
+}

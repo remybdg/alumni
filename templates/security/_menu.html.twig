@@ -1,0 +1,32 @@
+
+
+
+
+{% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+    <li id="id">
+        <img id="avatar" src="{{  asset_avatar(app.user.avatar) }}" alt="" width="30px">
+        <span>{{  app.user.firstname }} {{ app.user.lastname }}</span>
+    </li>
+    <li>
+        <a href="/logout">Déconnection</a>
+    </li>
+    <li>
+        <a href="{{ path('user.index', {"id": app.user.id, "slug": app.user.slug}) }}">Mon compte</a>
+    </li>
+{% else %}
+    <li>
+        <a href="/login">Connection</a>
+    </li>
+{% endif %}
+
+
+{% if is_granted('ROLE_ADMIN') %}
+    <li>
+        <a href="{{  path('admin.index') }}">Dashboard</a>
+    </li>
+{% endif %}
+
+
+
+

@@ -12,6 +12,12 @@
 
 
 {% block body %}
+    <div class="alert alert-success alert-dismissible fade" role="alert" id ="alertSup">
+        Suppression effectuée!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
     {% for message in app.flashes('success') %}
         <div class="alert alert-success alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close">
@@ -121,17 +127,17 @@
         $(`.nav-tabs a[href="${hash}"]`).tab('show');
     }
 
-   function onClickDelete(event) {
-        console.log(event.target);
-       if (!confirm("Confirmez la suppression!")) {
-           event.preventDefault();
-           return;
-       }
-
-       $.post({url: event.target.href, success: function(result){
-               console.log(response);
-           }});
-   }
+   // function onClickDelete(event) {
+   //      console.log(event.target);
+   //     if (!confirm("Confirmez la suppression!")) {
+   //         event.preventDefault();
+   //         return;
+   //     }
+   //
+   //     $.post({url: event.target.href, success: function(result){
+   //             console.log(response);
+   //         }});
+   // }
 
     pblElts = document.querySelectorAll(".poubelle");
     for (const pbl of pblElts) {
@@ -141,8 +147,10 @@
             if(reponse) {
                 const url = e.currentTarget.href;
                 $.post(url, (id) => {
+                    console.log(id);
                     const liElt = document.getElementById(id);
                     liElt.parentNode.removeChild(liElt);
+                    document.getElementById("alertSup").classList.toggle('fade');
                 });
             }
         });

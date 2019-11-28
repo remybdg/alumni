@@ -28,7 +28,7 @@ class Degree
     private $year;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Entity\Promotion", mappedBy="Degree")
+     * @ORM\OneToMany(targetEntity="App\Entity\Promotion", mappedBy="degree", cascade={"remove"})
      */
     private $promotions;
 

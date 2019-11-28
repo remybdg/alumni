@@ -20,7 +20,7 @@ class AdminController extends AbstractController
     public function index(DegreeRepository $degreeRepo, YearRepository $yearRepo, PromotionRepository $promoRepo) {
         $degrees = $degreeRepo->findBy([], ['name'=> 'ASC']);
         $years = $yearRepo->findBy([], ['title'=> 'ASC']);
-        $promos = $promoRepo->findBy([], ['degree'=> 'DESC','year' => 'ASC' ]);
+        $promos = $promoRepo->getAllOrderByDegreeAndYear();
 
         return $this->render('admin/index.html.twig', ['degrees' => $degrees, 'years' => $years, 'promos' => $promos ]);
     }

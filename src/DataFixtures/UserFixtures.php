@@ -8,6 +8,7 @@ use App\Service\Helpers\FileSystemHelper;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker\Factory;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class UserFixtures extends BaseFixture implements DependentFixtureInterface
 {
@@ -22,15 +23,21 @@ class UserFixtures extends BaseFixture implements DependentFixtureInterface
     private $FileSystemHelper;
     private $uploadPath;
 
+    /**
+     * @var UserPasswordEncoderInterface
+     */
+    private $passwordEncoder;
+
     public function getDependencies() {
         return [DegreeFixtures::class, YearFixtures::class,PromotionFixtures::class];
     }
 
-    public function __construct(SvgAvatarFactory $SvgAvatarFactory, FileSystemHelper $FileSystemHelper, $uploadPath) {
+    public function __construct(SvgAvatarFactory $SvgAvatarFactory, FileSystemHelper $FileSystemHelper, UserPasswordEncoderInterface $passwordEncoder, $uploadPath) {
         parent::__construct();
         $this->SvgAvatarFactory = $SvgAvatarFactory;
         $this->FileSystemHelper = $FileSystemHelper;
         $this->uploadPath = $uploadPath;
+        $this->passwordEncoder = $passwordEncoder;
     }
 
     public function getAvatar() {
@@ -57,7 +64,8 @@ class UserFixtures extends BaseFixture implements DependentFixtureInterface
             $user->setFirstname($faker->firstName);
             $user->setLastname($faker->name);
             $user->setEmail($faker->email);
-            $user->setPassword(password_hash($faker->password, PASSWORD_DEFAULT));
+//            $user->setPassword(password_hash($faker->password, PASSWORD_DEFAULT));
+            $user->setPassword($this->passwordEncoder->encodePassword($user, 'user'));
             $user->setCity($faker->city);
             $user->setBirthdate(new \DateTime(rand(1930, 2000).'-'.$faker->month.'-'.$faker->dayOfMonth));
 
@@ -69,8 +77,24 @@ class UserFixtures extends BaseFixture implements DependentFixtureInterface
 
             $user->setAvatar($this->getAvatar());
 
+            $admin = new User();
+            $admin->setFirstname('Remy');
+            $admin->setLastname('Boisdanghien');
+            $admin->setEmail('remyb@live.com');
+
+            $passwordHashed = $this->passwordEncoder->encodePassword($admin, 'admin');
+            $admin->setPassword($passwordHashed);
+
+            $admin->setCity('Aix');
+            $admin->setBirthdate(new \DateTime('1980-04-23'));
+            $admin->setAvatar($this->getAvatar());
+            $admin->setRoles(['ROLE_ADMIN']);
+
+
             $manager->persist($user);
+            $manager->persist($admin);
         }
+
 
 
         $manager->flush();

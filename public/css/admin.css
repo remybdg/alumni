@@ -32,6 +32,13 @@ a {
     color: #49535E;
 }
 
+#home {
+    background-color: #ECECEC;
+    color: #49535E;
+    border-radius: 25px;
+    padding: 1rem;
+}
+
 .nav-tabs {
     border-bottom: 0 solid transparent;
 }
